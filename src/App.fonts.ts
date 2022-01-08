@@ -1,0 +1,15 @@
+export const fonts = [
+  `'Amatic SC', cursive`,
+  `'Caveat', cursive`,
+  `'Comforter Brush', cursive`,
+  `'Cookie', cursive`,
+  `'Handlee', cursive`,
+  `'Indie Flower', cursive`,
+  `'Island Moments', cursive`,
+  `'Licorice', cursive`,
+  `'Oooh Baby', cursive`,
+  `'Patrick Hand', cursive`,
+  `'Poppins', sans-serif`,
+  `'The Nautigal', cursive`,
+  `'Vujahday Script', cursive`,
+];
