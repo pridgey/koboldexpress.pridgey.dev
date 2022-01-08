@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Container, StyledParchment, SaveButton } from "./App.styles";
 import domtoimage from "dom-to-image";
 import { FaRegSave } from "react-icons/fa";
+import { ImHourGlass } from "react-icons/im";
 
 const App = () => {
   const letter = useRef(document.createElement("div"));
+  const [loading, setLoading] = useState(false);
 
   return (
     <Container>
@@ -12,16 +14,18 @@ const App = () => {
         <div>Dearest Kobold,</div>
       </StyledParchment>
       <SaveButton
-        onClick={() =>
+        onClick={() => {
+          setLoading(true);
           domtoimage.toPng(letter.current).then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `kobold-express-${Date.now()}.png`;
             link.href = dataUrl;
             link.click();
-          })
-        }
+            setLoading(false);
+          });
+        }}
       >
-        <FaRegSave />
+        {loading ? <ImHourGlass /> : <FaRegSave />}
       </SaveButton>
     </Container>
   );
